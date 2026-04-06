@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-container">
+        <h1 id="title">TO DO APP</h1>
+
+        <div class="side_bar">
+             <button id="category_btn" onclick="change_category()">#</button>
+             <div class="category_container">
+                <button id="perso_filter" onclick="change_to_perso()">Personal</button>
+                <button id="study_filter" onclick="change_to_study()">Study</button>
+                <button id="work_filter" onclick="change_to_work()">Work</button>
+                <button id="all_filter" onclick="change_to_all()">ALL</button>
+             </div>
+        </div>
+
+        <div class="input-row">
+            <input type="text" id="task_input" placeholder="Enter a task">
+            <button id="addbtn" onclick="add_to_list()">ADD</button>
+        </div>
+
+        <div class="filter_btn">
+            <button id="all_btn" onclick="filterAll()">ALL</button>
+            <button id="completed_btn" onclick="filterComp()">COMPLETED</button>
+            <button id="active_btn" onclick="filterAct()">ACTIVE</button>
+        </div>
+
+        <ul id="task_list"></ul>
+
+        <div class="footer">
+            <span id="remaining_msg">No tasks yet</span>
+            <div>
+                <button id="clear_comp_btn" onclick="clear_comp()">Clear Completed</button>
+                <button id="reset_btn" onclick="reset()">Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
