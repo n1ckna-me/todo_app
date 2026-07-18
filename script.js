@@ -73,14 +73,26 @@ function render_tasks (){
             update_state();
         }
 
-        const task_mod = document.createElement("div");
+        const options = document.createElement("div");
+        const content = document.createElement("div")
         const showbtn = document.createElement("button");
+        const closebtn = document.createElement("button");
+        const option_title = document.createElement("h3");
+
+        options.appendChild(content);
 
         showbtn.textContent = '>';
-        task_mod.className = "modes";
+        closebtn.textContent = '<';
+        option_title.textContent = "Options"
+        options.className = "popup";
+        content.className = "content";
 
         showbtn.onclick = () => {
-            task_mod.classList.toggle('show');    
+            options.style.display = "flex";
+        }
+
+        closebtn.onclick = () =>{
+            options.style.display = "none"; 
         }
 
         const modifybtn = document.createElement("button");
@@ -92,7 +104,7 @@ function render_tasks (){
                 on = true;
                 const modify_input = document.createElement("input");
                 modify_input.value = task.text;
-                li.appendChild(modify_input);
+                content.appendChild(modify_input);
 
                 modify_input.addEventListener('keydown', (e) => {
                     if (e.key === 'Enter'){
@@ -101,7 +113,7 @@ function render_tasks (){
                         }else{
                             window.alert("PLS enter a task first (string!!)");
                         }
-                        li.removeChild(modify_input);
+                        content.removeChild(modify_input);
                         on = false;
                         update_state();
                     }
@@ -117,7 +129,7 @@ function render_tasks (){
                 on = true;
                 const due_input = document.createElement("input");
                 due_input.type = "date";
-                li.appendChild(due_input); 
+                content.appendChild(due_input);
 
                 due_input.addEventListener('keydown', (e) => {
                     if(e.key === 'Enter'){
@@ -127,7 +139,7 @@ function render_tasks (){
                         }else{
                             task.deadline = due_time;
                         }
-                        li.removeChild(due_input);
+                        content.removeChild(due_input);
                         on = false;
                         update_state();
                     }
@@ -140,9 +152,11 @@ function render_tasks (){
         li.appendChild(span);
         li.appendChild(deletbtn);
         li.appendChild(showbtn);
-        showbtn.appendChild(task_mod);
-        task_mod.appendChild(modifybtn);
-        task_mod.appendChild(set_duebtn);
+        document.body.appendChild(options);
+        content.appendChild(option_title);
+        content.appendChild(modifybtn);
+        content.appendChild(set_duebtn);
+        content.appendChild(closebtn);
     })
 
 }
