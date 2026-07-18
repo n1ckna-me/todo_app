@@ -162,20 +162,59 @@ button:active {
     opacity: 0.6;
 }
 
-
-.modes {
+.popup {
     display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 35px;
-    right: 0;
-    background: white;
-    border-radius: 12px;
-    padding: 8px;
-    box-shadow: var(--shadow-soft);
-    gap: 5px;
+    position: fixed;
+    inset: 0;
+    background: rgba(30, 41, 59, 0.45);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+
+    justify-content: center;
+    align-items: center;
 }
 
-.modes.show {
+.content {
+    width: 350px;
+    background: var(--card-bg);
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: var(--shadow-hover);
+
     display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    animation: popupShow 0.25s ease;
+}
+
+.content h3 {
+    margin: 0 0 10px;
+    text-align: center;
+    color: #3b4a5a;
+}
+
+.content input {
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    outline: none;
+    transition: 0.2s;
+}
+
+.content input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.4);
+}
+
+@keyframes popupShow {
+    from {
+        opacity: 0;
+        transform: translateY(-15px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
