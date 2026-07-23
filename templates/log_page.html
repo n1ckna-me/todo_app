@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do App</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+    <div class="main-container">
+        <h1 id="title">TO DO APP</h1>
+
+        <div class="input-row">
+            <input type="text" placeholder="Enter username" id="name">
+            <input type="text" placeholder="Enter password" id="password">
+        </div>
+        
+        <div class="log_btn">
+            <button onclick="signin()">sign in</button>
+            <button onclick="login()">login</button>
+            <button onclick="stayGuest()">guest</button>
+        </div>
+        
+        <li>to creat an acount click sign in</li>
+        <li>click guest if you dont want to creat an acount</li>
+    </div>
+    
+    <script src="{{url_for('static', filename='log_script.js')}}"></script>
+</body>
+</html>
